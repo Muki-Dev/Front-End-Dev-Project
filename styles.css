@@ -48,6 +48,10 @@ a{
 	display: block;
 }
 
+.detail-image {
+	width: 90%; 
+}
+
 .thumbnail-title{
 	display: block;
   	margin: 0;

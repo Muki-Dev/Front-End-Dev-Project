@@ -33,3 +33,11 @@ function addThumbClickHandler(thumb){
 		setDetailsFromThumb(thumb)
 	})
 }
+
+function getThumbnailArray(){
+	'use strict';
+	var thumbnail = document.querySelectorAll(THUMBNAIL_LINK_SELECTOR);
+	var thumbnailArray = [].slice.call(thumbnail);
+	return thumbnailArray;
+}
+

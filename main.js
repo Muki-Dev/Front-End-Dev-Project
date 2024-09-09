@@ -11,4 +11,7 @@ function setDetails(imageUrl,titleText){
 	detailTitle.textContent = titleText;
 }
 
-setDetails('img/otter4.jpg','Night Fever');
+function imageFromThumb(thumbnail){
+	'use strict';
+	return thumbnail.getAttribute('data-image-url');
+}

@@ -41,3 +41,9 @@ function getThumbnailArray(){
 	return thumbnailArray;
 }
 
+function initializeEents(){
+	'use strict';
+	var thumbnails = getThumbnailArray();
+}
+
+initializeEents();

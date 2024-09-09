@@ -15,3 +15,21 @@ function imageFromThumb(thumbnail){
 	'use strict';
 	return thumbnail.getAttribute('data-image-url');
 }
+
+function titleFromThumb(thumbnail){
+	'use strict';
+	return thumbnail.getAttribute('data-image-title');
+}
+
+function setDetailsFromThumb(thumbnail){
+	'use strict';
+	setDetails(imageFromThumb(thumbnail),titleFromThumb(thumbnail));
+}
+
+function addThumbClickHandler(thumb){
+	'use strict';
+	thumb.addEventListener('click',function(){
+		event.preventDefault();
+		setDetailsFromThumb(thumb)
+	})
+}

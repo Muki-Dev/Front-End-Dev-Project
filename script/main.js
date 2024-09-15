@@ -2,6 +2,7 @@ var DETAIL_IMAGE_SELECTOR = '[data-image-role="target"]';
 var DETAIL_IMAGE_TITLE = '[data-image-role="title"]';
 var THUMBNAIL_LINK_SELECTOR = '[data-image-role="trigger"]';
 var HIDDEN_DETAIL_CLASS = 'hidden-detail';
+var ESC_KEY = 27;
 
 function setDetails(imageUrl,titleText){
 	'use strict';
@@ -32,6 +33,7 @@ function addThumbClickHandler(thumb){
 	thumb.addEventListener('click',function(event){
 		event.preventDefault();
 		setDetailsFromThumb(thumb);
+		showDetails();
 	})
 }
 
@@ -44,14 +46,29 @@ function getThumbnailsArray(){
 
 function hideDetails(){
 	'use strict';
-	document.body.add.classList(HIDDEN_DETAIL_CLASS);
+	document.body.classList.add(HIDDEN_DETAIL_CLASS);
+}
 
+function showDetails(){
+	"use strict";
+	document.body.classList.remove(HIDDEN_DETAIL_CLASS);
+}
+
+function addKeyPressHandler(){
+	"use strict";
+	document.addEventListener('keyup',function(event){
+		event.preventDefault();
+		 if(event.keyCode === ESC_KEY){
+		 	hideDetails()
+		 }
+	})
 }
 
 function initializeEvents(){
 	'use strict';
 	var thumbnails = getThumbnailsArray();
 	thumbnails.forEach(addThumbClickHandler);
+	addKeyPressHandler();
 }
 
 initializeEvents();
